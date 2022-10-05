@@ -1,0 +1,13 @@
+command_timeout = 1000
+
+[git_status]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[cmd_duration]
+min_time = 500  # only show if slow
+
+[status]
+disabled = true
