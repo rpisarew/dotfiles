@@ -8,7 +8,7 @@ local b = null_ls.builtins
 
 local sources = {
   b.code_actions.eslint_d,
-  b.code_actions.gitsigns,
+  -- b.code_actions.gitsigns,
 
   b.formatting.prettierd,
   b.formatting.stylua,

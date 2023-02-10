@@ -14,6 +14,8 @@ autocmd("VimEnter", {
     vim.cmd "let g:neovide_floating_blur_amount_y=5.0"
     vim.cmd "let g:neovide_fullscreen=v:true"
     vim.cmd "let g:neovide_cursor_vfx_mode='pixiedust'"
+
+    vim.cmd "highlight ColorColumn guibg=gray10"
   end,
 })
 
@@ -25,7 +27,7 @@ autocmd("VimEnter", {
 
 local opt = vim.opt
 
-opt.colorcolumn = "120"
+opt.colorcolumn = "80,100,120"
 opt.relativenumber = true
 
 opt.wrap = false

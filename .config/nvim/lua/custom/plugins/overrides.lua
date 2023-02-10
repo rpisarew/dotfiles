@@ -95,9 +95,9 @@ M.nvterm = {
     },
   },
 }
+
 M.telescope = {
-  -- defaults = {
-  -- },
+  -- defaults = E,
 }
 
 return M
