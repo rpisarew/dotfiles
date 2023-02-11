@@ -81,15 +81,15 @@ M.lspconfig = {
 	},
 }
 
-M.nvimtree = {
-	n = {
-		--[ toggle ]
-		["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "focus nvimtree" },
+-- M.nvimtree = {
+-- 	n = {
+-- 		--[ toggle ]
+-- 		["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "focus nvimtree" },
 
-		--[ unbind ]
-		["<C-n>"] = { "", "" },
-	},
-}
+-- 		--[ unbind ]
+-- 		["<C-n>"] = { "", "" },
+-- 	},
+-- }
 
 M.nvterm = {
 	t = {

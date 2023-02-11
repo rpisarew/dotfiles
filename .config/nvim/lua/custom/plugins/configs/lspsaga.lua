@@ -106,4 +106,4 @@ local options = {
   server_filetype_map = {},
 }
 
-lspsaga.init_lsp_saga(options)
+lspsaga.setup(options)
