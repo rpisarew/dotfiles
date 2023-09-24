@@ -7,8 +7,8 @@
 local notify = require 'notify'
 
 notify.setup({
-  timeout = 3000,
-  stages = 'fade',
+  timeout = 2500,
+  stages = 'static',
 })
 
 vim.notify = function(msg, level, opts)
