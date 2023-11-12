@@ -10,6 +10,7 @@ alias top="btm"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias nv="/Applications/neovide.app/Contents/MacOS/neovide"
 
 alias r="ranger"
 
@@ -19,3 +20,15 @@ alias dcd="docker-compose down"
 alias dcl="docker-compose logs"
 
 alias e="emacsclient -c -a emacs"
+
+# Zellij
+alias zz="zellij"
+alias zza="zz attach (zz list-sessions | fzf)"
+
+function zr
+  zellij run -- $argv
+end
+
+function zrf
+  zellij run -f -- $argv
+end

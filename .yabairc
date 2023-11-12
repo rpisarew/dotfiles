@@ -22,7 +22,7 @@ yabai -m config window_topmost               off
 yabai -m config window_shadow                on
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
-yabai -m config active_window_opacity        1.0
+yabai -m config active_window_opacity        0.0
 yabai -m config normal_window_opacity        0.90
 yabai -m config window_border                off
 yabai -m config window_border_width          6
@@ -45,8 +45,8 @@ yabai -m config right_padding                12
 yabai -m config window_gap                   06
 
 # ignored apps
-yabai -m rule --add app="Microsoft Teams" manage=off
-yabai -m rule --add app="Blitz" manage=off
-yabai -m rule --add app="League of Legends" manage=off
+yabai -m rule --add app="^Microsoft Teams$" manage=off
+yabai -m rule --add app="^Blitz$" manage=off
+yabai -m rule --add app="^League of Legends$" manage=off
 
 echo "yabai configuration loaded.."
