@@ -15,4 +15,3 @@ zoxide init fish | source
 
 # starship
 starship init fish | source
-
