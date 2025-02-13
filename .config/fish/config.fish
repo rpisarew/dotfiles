@@ -13,7 +13,7 @@ set -x GPG_TTY (tty)
 # gpg-agent --daemon > /dev/null 2>&1
 
 # cargo
-# set -gx CARGO_TARGET_DIR "$HOME/.cargo-target"
+#set -gx CARGO_TARGET_DIR "$HOME/.cargo-target"
 
 # node
 set -gx VOLTA_HOME "$HOME/.volta"
@@ -27,9 +27,6 @@ if status is-interactive
     fish_default_key_bindings
     # fish_vi_key_bindings
     # eval (zellij setup --generate-auto-start fish | string collect)
-end
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /Users/lowm4n/miniforge3/bin/conda "shell.fish" hook $argv | source
-# <<< conda initialize <<<
+    atuin init fish | source
+end

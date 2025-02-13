@@ -1,11 +1,25 @@
+local Util = require("lazyvim.util")
+
 return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        signs = false,
+      },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signcolumn = false,
+    },
+  },
   {
     "stevearc/conform.nvim",
     opts = {
-      formatters = {
-        csharpier = {
-          args = { "--write-stdout", "--no-cache", "$FILENAME" },
-        },
+      formatters_by_ft = {
+        htmlangular = { "prettier" },
       },
     },
   },
@@ -14,6 +28,11 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     -- enabled = false,
   },
+
+  -- {
+  --   "folke/flash.nvim",
+  --   enabled = false,
+  -- },
 
   {
     "folke/tokyonight.nvim",
@@ -37,6 +56,22 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>fe",
+        function()
+          require("neo-tree.command").execute({ toggle = false, dir = Util.root() })
+        end,
+        desc = "Explorer NeoTree (root dir)",
+      },
+      {
+        "<leader>fE",
+        function()
+          require("neo-tree.command").execute({ toggle = false, dir = vim.loop.cwd() })
+        end,
+        desc = "Explorer NeoTree (cwd)",
+      },
+    },
     opts = {
       filesystem = {
         filtered_items = {
@@ -62,6 +97,16 @@ return {
           ["l"] = "open_with_window_picker",
           ["h"] = "close_node",
         },
+      },
+    },
+  },
+
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    opts = {
+      config = {
+        c = "// %s",
+        cpp = "// %s",
       },
     },
   },
