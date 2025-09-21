@@ -1,3 +1,6 @@
+# --- Only in interactive shells ----------------------------------------------
+status is-interactive; or exit
+
 # Matlab fix
 # ❯ echo $DYLD_LIBRARY_PATH
 # /Applications/MATLAB/MATLAB_Runtime/R2024a/runtime/maca64 /Applications/MATLAB/MATLAB_Runtime/R2024a/bin/maca64 /Applications/MATLAB/MATLAB_Runtime/R2024a/sys/osmaca64 /Applications/MATLAB/MATLAB_Runtime/R2024a/extern/bin/maca64

@@ -61,8 +61,7 @@ ctrl - 4 : yabai -m space --focus 4
 ctrl - 5 : yabai -m space --focus 5
 
 # terminal
-# cmd - return : /Applications/kitty.app/Contents/MacOS/kitty -o allow_remote_control=yes --single-instance --listen-on unix:/tmp/mykitty
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - return : /Applications/WezTerm.app/Contents/MacOS/wezterm
 
 .blacklist [
   "kitty"

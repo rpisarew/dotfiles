@@ -1,3 +1,6 @@
+# --- Only in interactive shells ----------------------------------------------
+status is-interactive; or exit
+
 #alias ls="exa"
 alias lg="lazygit"
 alias ll="exa -l --icons"
