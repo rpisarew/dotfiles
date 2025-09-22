@@ -1,0 +1,6 @@
+fish
+git
+nvim
+starship
+wezterm
+zellij

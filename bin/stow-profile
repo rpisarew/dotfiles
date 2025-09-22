@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+DOTDIR="$REPO_ROOT/dotfiles"
+PROFILE="${1:-base}"
+TARGET="${2:-$HOME}"
+
+PROFILE_FILE="$REPO_ROOT/profiles/$PROFILE.txt"
+[[ -f "$PROFILE_FILE" ]] || { echo "No such profile: $PROFILE"; exit 1; }
+
+pushd "$DOTDIR" >/dev/null
+while read -r pkg; do
+  [[ -z "${pkg:-}" || "$pkg" =~ ^# ]] && continue
+  echo "Stowing $pkg -> $TARGET"
+  stow --restow --target="$TARGET" "$pkg"
+done < "$PROFILE_FILE"
+popd >/dev/null

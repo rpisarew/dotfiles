@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+host="$("$REPO_ROOT/bin/detect-host")"
+echo "Switching to host: $host"
+sudo nixos-rebuild switch --flake "$REPO_ROOT#${host}"

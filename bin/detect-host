@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+hn="$(hostname -s)"
+case "$hn" in
+  thinkpad*) echo "thinkpad" ;;
+  desktop*)  echo "desktop"  ;;
+  *)         echo "$hn"      ;;
+esac
