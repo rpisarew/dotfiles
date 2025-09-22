@@ -27,7 +27,7 @@
           ./modules/users.nix
           ./modules/networking.nix
           ./modules/devtools.nix
-          ./modules/virtualization.nix
+          # ./modules/virtualization.nix
           # add/remove role modules per host file
           ./overlays/default.nix
           ./pkgs/default.nix
