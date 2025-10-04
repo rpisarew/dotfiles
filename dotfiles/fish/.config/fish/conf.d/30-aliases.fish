@@ -36,4 +36,4 @@ function zrf
   zellij run -f -- $argv
 end
 
-alias docker="podman"
+# alias docker="podman"

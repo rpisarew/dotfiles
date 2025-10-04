@@ -14,6 +14,7 @@ in
   environment.systemPackages = with pkgs; [
     hyprlock
     hypridle
+    hyprpicker
 
     swww
     waypaper

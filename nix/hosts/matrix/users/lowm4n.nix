@@ -12,9 +12,9 @@ in
 
   # Declarative cursor config that updates GTK & X11
   home.pointerCursor = {
-    name = "Bibata-Modern-Classic";  # or "Adwaita"
+    name = "Bibata-Modern-Ice";  # or "Adwaita"
     package = pkgs.bibata-cursors;
-    size = 24;
+    size = 20;
     gtk.enable = true;  # writes gtk settings
     x11.enable = true;  # sets X cursor symlink
   };

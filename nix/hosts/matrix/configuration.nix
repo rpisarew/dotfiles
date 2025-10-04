@@ -2,6 +2,7 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
   pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${system};
+  quickshell = inputs.quickshell.packages.${system}.default;
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -13,6 +14,7 @@ in
     flake.modules.nixos.steam
     flake.modules.wm.hyprland
     flake.modules.misc.vscode-remote
+    flake.modules.misc.secrets
   ];
 
   # Kernel & hardware defaults
@@ -85,6 +87,10 @@ in
     eza
     bat
     zellij
+
+    quickshell
+
+    easyeffects
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -172,6 +178,7 @@ security.polkit.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;  
+  services.xserver.desktopManager.cinnamon.enable = true;
 
   # mac like keybinds
   services.keyd = {
