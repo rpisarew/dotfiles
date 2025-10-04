@@ -36,4 +36,20 @@ config.window_padding = {
   bottom = 10,
 }
 
+-- Copy on mouse selection (left-button release)
+config.mouse_bindings = config.mouse_bindings or {}
+table.insert(config.mouse_bindings, {
+  event = { Up = { streak = 1, button = "Left" } },
+  mods = "NONE",
+  -- Copies the selection to both the system Clipboard and the X11 Primary selection
+  action = wezterm.action { CompleteSelection = "ClipboardAndPrimarySelection" },
+})
+
+-- Optional: paste with middle click from primary selection (Linux/Wayland/X11)
+-- table.insert(config.mouse_bindings, {
+--   event = { Down = { streak = 1, button = "Middle" } },
+--   mods = "NONE",
+--   action = wezterm.action { PasteFrom = "PrimarySelection" },
+-- })
+
 return config

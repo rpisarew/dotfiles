@@ -12,7 +12,7 @@ in
     flake.modules.nixos.ssh
     flake.modules.nixos.steam
     flake.modules.wm.hyprland
-    inputs.vscode-server.nixosModules.default
+    flake.modules.misc.vscode-remote
   ];
 
   # Kernel & hardware defaults
@@ -43,12 +43,17 @@ in
 
   # Packages available system-wide (keep this small; prefer Home Manager for apps)
   environment.systemPackages = with pkgs; [
+    wl-clipboard
+
+    audacity
+
     usbutils
     stow
 
     pavucontrol #audio
     nemo # filemanager
 
+    # use by vscode remote
     coreutils
     gnugrep
     gnutar
@@ -72,12 +77,17 @@ in
     libnotify
 
     rofi
+
+    fish
+    atuin
+    zoxide
+    starship
+    eza
+    bat
+    zellij
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Enable the VS Code server helper
-  services.vscode-server.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -232,6 +242,18 @@ security.polkit.enable = true;
       openssh.authorizedKeys.keys = [
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7PcPvy917XSLd/qqWUT4nHT9ML6tn/zVfbMTcAbQ9ztKGRYDLoHnKIBpIGnOJxeBQ7tHtp3r5oG3h0vatJM0+E8psJElw1Bx8iTjMD3m6bZ/l9lJmJ5tAEv8C+9n0nJ9NuzgSSbmscxutxxU8p0DpmsnIUMaByTL/1f3bB/tddOO0KFiWPKLx8bIhB0SDL6iix7dXPbvthijYj8sXkSUyNfE7jfwFHZJQz1DUg/qc9ggrrkWpvwKDPuF4kCTO2punp7VpxYAvlgYpVjK2H5qUw0dYslSoCFB3CFfd+uKFaVEgTwH36yBLspgafMQ7Df3ujBAqB/nhvRsnJ44KXZn+k9MVEcDjmjOUDTmZ1rmjWXSOrIVO+QukpCSCji9azXOBJzHe4KWziJ1dYprEYzpbVRCk67VFCZ2Y0ybmbeHzStJOGTPRXZCMzM97FwxmResEOH8Lmww3UQis7Vb0VUvVyW6RxoXb1Sbgj3C0N7HO3LwxTuga1jOZgshJ+s8ZR3JBwtrJjWHxFHClJEAUgdSHkClQ+sbL2Ii9df4e43S30dCEGVpw5HY3TYvvo7UYOEdUoYvlc9CYE+d5s+ka5bFA/Frc0YPlPojwy5CttnWKN1JM3HACx471vKufsNMTQHlspDAFtrl6rHUX6F4vMvPyC34kgR2xG4chuSzybmJcsQ== lowm4n@JARVIS.local"
       ];
+    };
+  };
+
+  systemd.user.services.copy-sound = {
+    description = "Play a sound when the Wayland clipboard changes";
+    after = [ "graphical-session-pre.target" ];
+    partOf = [ "graphical-session.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bash}/bin/bash -lc '${pkgs.wl-clipboard}/bin/wl-paste --watch pw-play ~/.dotfiles/assets/sounds/copy-sound.mp3'";
+      Restart = "always";
+      RestartSec = "1s";
     };
   };
 }

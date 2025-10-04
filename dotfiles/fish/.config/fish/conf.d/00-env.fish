@@ -6,12 +6,12 @@ if not set -q HOMEBREW_PREFIX
 end
 
 # --- Others ------------------------------------------------------------------
-set -gx VOLTA_HOME "$HOME/.volta"
-set -l paths \
-    ~/.cargo/bin \
-    $VOLTA_HOME/bin \
-    $HOME/.dotnet/tools \
-    $HOME/.local/bin
+# set -gx VOLTA_HOME "$HOME/.volta"
+# set -l paths \
+#     ~/.cargo/bin \
+#     $VOLTA_HOME/bin \
+#     $HOME/.dotnet/tools \
+#     $HOME/.local/bin
 
 # Add only existing dirs; persist; keep order without duplicates
 for p in $paths
