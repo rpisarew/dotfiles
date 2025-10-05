@@ -7,6 +7,8 @@ in
   # Home Manager basics
   home.stateVersion = "25.05"; # match your HM release
 
+  # services.pass-secret-service.enable = true;
+
   # xdg.configFile."hypr/hyprland.conf".source = "${inputs.dotfiles}/.config/hypr/hyprland.conf";
   # home.file.".wezterm.lua".source = "${inputs.dotfiles}/.wezterm.lua";
 
