@@ -52,4 +52,10 @@ table.insert(config.mouse_bindings, {
 --   action = wezterm.action { PasteFrom = "PrimarySelection" },
 -- })
 
+-- add near other config fields
+-- config.set_environment_variables = {
+--   -- use XDG_RUNTIME_DIR if present; else fallback to /run/user/<uid>
+--   SSH_AUTH_SOCK = (os.getenv("XDG_RUNTIME_DIR") or ("/run/user/" .. os.getenv("UID"))) .. "/keyring/ssh",
+-- }
+
 return config
