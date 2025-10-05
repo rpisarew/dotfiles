@@ -91,6 +91,9 @@ in
     quickshell
 
     easyeffects
+
+    typst
+    kdePackages.okular
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
