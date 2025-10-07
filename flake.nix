@@ -28,11 +28,6 @@
     # VSCode ssh support
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
-
-    dotfiles = {
-      url = "git+https://github.com/rpisarew/dotfiles";
-      flake = false;
-    };
   };
 
   # Load the blueprint
