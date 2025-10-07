@@ -15,6 +15,7 @@ in
     flake.modules.wm.hyprland
     flake.modules.misc.vscode-remote
     flake.modules.misc.secrets
+    flake.modules.misc.fonts
     flake.modules.dev.rust
     flake.modules.gpu.amd
   ];
@@ -34,11 +35,6 @@ in
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   time.timeZone = "Europe/Berlin";
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-mono
-    nerd-fonts.fira-code
-  ];
 
   environment.variables = {
     EDITOR = "nvim";

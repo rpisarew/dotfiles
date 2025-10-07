@@ -21,22 +21,6 @@
         "type": "github"
       }
     },
-    "dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759452605,
-        "narHash": "sha256-mXfeJIGsRnGn5nNY3kBaiZvN8c4XO3201GO2mbeyC8A=",
-        "ref": "refs/heads/main",
-        "rev": "ce5cae98188b0703cab6ca2d4a9413004fe29dfa",
-        "revCount": 6,
-        "type": "git",
-        "url": "https://github.com/rpisarew/dotfiles"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://github.com/rpisarew/dotfiles"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -94,11 +78,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1759381078,
-        "narHash": "sha256-gTrEEp5gEspIcCOx9PD8kMaF1iEmfBcTbO0Jag2QhQs=",
+        "lastModified": 1759733170,
+        "narHash": "sha256-TXnlsVb5Z8HXZ6mZoeOAIwxmvGHp1g4Dw89eLvIwKVI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7df7ff7d8e00218376575f0acdcc5d66741351ee",
+        "rev": "8913c168d1c56dc49a7718685968f38752171c3b",
         "type": "github"
       },
       "original": {
@@ -131,7 +115,6 @@
     "root": {
       "inputs": {
         "blueprint": "blueprint",
-        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
