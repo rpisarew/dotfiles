@@ -2,7 +2,11 @@
 {
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  hardware.graphics.enable32Bit = true; # For 32 bit applications
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;  # needed for many games/proton
+  };
 
   # GPU monitoring
   environment.systemPackages = with pkgs; [

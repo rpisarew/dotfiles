@@ -43,6 +43,7 @@ in
 
   # Packages available system-wide (keep this small; prefer Home Manager for apps)
   environment.systemPackages = with pkgs; [
+    direnv
     wl-clipboard
 
     audacity
