@@ -5,5 +5,8 @@
     cmake
     pkg-config
     rustup
+    rust-analyzer
+    rustfmt
+    clippy
   ];
 }
