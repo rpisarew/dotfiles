@@ -30,32 +30,27 @@ config.colors = {
 }
 
 config.window_padding = {
-  left = 10,
-  right = 10,
-  top = 10,
-  bottom = 10,
+  left = 5,
+  right = 5,
+  top = 5,
+  bottom = 5,
 }
 
--- Copy on mouse selection (left-button release)
+wezterm.on("copy-selection", function(window, pane)
+  local sel = window:get_selection_text_for_pane(pane)
+  if sel and sel ~= "" then
+    window:perform_action(wezterm.action.CompleteSelection("ClipboardAndPrimarySelection"), pane)
+    wezterm.background_child_process({ "paplay", "/usr/share/sounds/freedesktop/stereo/network-connectivity-established.oga" })
+  end
+end)
+
 config.mouse_bindings = config.mouse_bindings or {}
-table.insert(config.mouse_bindings, {
-  event = { Up = { streak = 1, button = "Left" } },
-  mods = "NONE",
-  -- Copies the selection to both the system Clipboard and the X11 Primary selection
-  action = wezterm.action { CompleteSelection = "ClipboardAndPrimarySelection" },
-})
-
--- Optional: paste with middle click from primary selection (Linux/Wayland/X11)
--- table.insert(config.mouse_bindings, {
---   event = { Down = { streak = 1, button = "Middle" } },
---   mods = "NONE",
---   action = wezterm.action { PasteFrom = "PrimarySelection" },
--- })
-
--- add near other config fields
--- config.set_environment_variables = {
---   -- use XDG_RUNTIME_DIR if present; else fallback to /run/user/<uid>
---   SSH_AUTH_SOCK = (os.getenv("XDG_RUNTIME_DIR") or ("/run/user/" .. os.getenv("UID"))) .. "/keyring/ssh",
--- }
+for streak = 1, 3 do
+  table.insert(config.mouse_bindings, {
+    event = { Up = { streak = streak, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.EmitEvent("copy-selection"),
+  })
+end
 
 return config

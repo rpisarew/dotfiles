@@ -5,9 +5,9 @@ status is-interactive; or exit
 alias lg="lazygit"
 alias ll="exa -l --icons"
 alias lla="exa -la --icons"
-alias cat="bat"
+# alias cat="bat"
 alias icat="kitty +kitten icat"
-alias grep="rg"
+# alias grep="rg"
 alias top="btm"
 
 alias v="nvim"

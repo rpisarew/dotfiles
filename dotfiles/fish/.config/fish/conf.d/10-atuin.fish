@@ -4,5 +4,8 @@ status is-interactive; or exit
 # --- Atuin ---------------------------------------------------------------
 function __atuin_lazy_init --on-event fish_prompt
     functions -e __atuin_lazy_init
-    source (atuin init fish | psub)
+
+    # fix for fish version >= 4.0
+    source (atuin init fish | sed 's/-k up/ up/' | psub)
+    # source (atuin init fish | psub)
 end
